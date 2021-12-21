@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+@*
+<div class="news">
+    <div class="new-news">
+        <h1 class="h1 text-center text-success">Tin mới nhất</h1>
+        <div class="small-border bg-success rounded mx-auto "></div>
+        <div class="box-new">
+            <div class="box-new-container">
+                <a href="#">
+                    <img src="~/Content/img/feature_prod_01.jpg">
+                    <h3 class="h3">Những tips giúp áo len của các bạn nam auto đẹp & bền</h3>
+                    <p>Nếu bạn muốn thì phải đọc ngay “Tips Bảo Quản Áo Len Siêu Bền Bấp Chấp Năm Tháng” dưới đây. Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm. Nhưng liệu bạn đã biết cách thức bảo quản loại trang phục “khó tính” này chưa, đọc ngay đi nào</p>
+                </a>
+            </div>
+            <div class="box-new-container">
+                <a href="#">
+                    <img src="~/Content/img/feature_prod_02.jpg">
+                    <h3 class="h3">Những tips giúp áo len của các bạn nam auto đẹp & bền</h3>
+                    <p>Nếu bạn muốn thì phải đọc ngay “Tips Bảo Quản Áo Len Siêu Bền Bấp Chấp Năm Tháng” dưới đây. Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm. Nhưng liệu bạn đã biết cách thức bảo quản loại trang phục “khó tính” này chưa, đọc ngay đi nào</p>
+                </a>
+            </div>
+            <div class="box-new-container">
+                <a href="#">
+                    <img src="~/Content/img/feature_prod_03.jpg">
+                    <h3 class="h3">Những tips giúp áo len của các bạn nam auto đẹp & bền</h3>
+                    <p>Nếu bạn muốn thì phải đọc ngay “Tips Bảo Quản Áo Len Siêu Bền Bấp Chấp Năm Tháng” dưới đây. Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm. Nhưng liệu bạn đã biết cách thức bảo quản loại trang phục “khó tính” này chưa, đọc ngay đi nào</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="old-news">
+        <h1 class="h1">Có thể bạn sẽ quan tâm</h1>
+        <div class="box-new">
+            @{ Html.RenderAction("getNews", "News");}
+
+        </div>
+    </div>
+</div>
+*@
+<main>
+    <section class="main-container-left">
+        <h2 class="text-success">Tin nổi bật</h2>
+        <div class="small-border bg-success rounded  "></div>
+        <div class="container-top-left">
+            <article>
+                <img src="~/Content/upload/img/product/feature_prod_01.jpg">
+
+                <div>
+                    <h3><b>Những tips giúp áo len của các bạn nam auto đẹp & bền</b></h3>
+
+                    <h4>Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm.</h4>
+
+                    <a href="#">Đọc thêm <span>>></span></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="container-bottom-left">
+            <article>
+                <img src="~/Content/upload/img/product/feature_prod_02.jpg">
+                <div>
+                    <h3><b>Những tips giúp áo len của các bạn nam auto đẹp & bền</b></h3>
+
+                    <h4>Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm.</h4>
+
+                    <a href="#">Đọc thêm <span>>></span></a>
+                </div>
+            </article>
+
+            <article>
+                <img src="~/Content/upload/img/product/feature_prod_03.jpg">
+                <div>
+                    <h3><b>Những tips giúp áo len của các bạn nam auto đẹp & bền</b></h3>
+
+                    <h4>Vốn là item được “chiều chuộng” vào những ngày mùa đông, nên nhắc đến là lòng tự dưng ấm.</h4>
+
+                    <a href="#">Đọc thêm <span>>></span></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="main-container-right">
+        <h2>tin mới nhất</h2>
+        <div class="small-border bg-dark rounded  "></div>
+        @{ Html.RenderAction("getNews", "News");}
+    </section>
+</main>

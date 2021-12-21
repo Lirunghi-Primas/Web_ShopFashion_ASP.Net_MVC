@@ -1,0 +1,101 @@
+/*
+Custom Css
+*/
+.news {
+    padding: 2rem 2.5%;
+    border: .2rem solid rgb(12, 155, 48);
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 3rem auto;
+}
+
+    .news .new-news {
+        width: 100%;
+    }
+
+        .news .new-news .h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+        }
+
+        .news .new-news .small-border {
+            width: 200px;
+            height: 3px;
+        }
+
+        .news .new-news .box-new {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+            .news .new-news .box-new .box-new-container {
+                width: 30%;
+                padding: 1rem;
+            }
+
+                .news .new-news .box-new .box-new-container:hover {
+                    border: .01rem solid var(--red);
+                }
+
+                .news .new-news .box-new .box-new-container a {
+                    text-decoration: none;
+                    color: black;
+                }
+
+                .news .new-news .box-new .box-new-container img {
+                    width: 100%;
+                    height: 200px;
+                }
+
+                .news .new-news .box-new .box-new-container .h3 {
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    color: #333;
+                    text-align: justify;
+                }
+
+                .news .new-news .box-new .box-new-container p {
+                    font-size: 1.1rem;
+                    text-align: justify;
+                }
+
+    .news .old-news {
+        margin-top: 3rem;
+    }
+
+        .news .old-news .h1 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .news .old-news .box-new {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .news .old-news .box-new .box-new-container a {
+                display: flex;
+                align-items: flex-start;
+                padding: 0rem 0;
+                border-bottom: .01rem solid rgba(0,0,0,.5);
+                text-decoration: none;
+            }
+
+            .news .old-news .box-new .box-new-container img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+
+            .news .old-news .box-new .box-new-container .content {
+                margin-top: 15pt;
+                text-align: justify;
+                position: relative;
+                top: -0.5rem;
+                left: 1.5rem;
+                color: black;
+            }

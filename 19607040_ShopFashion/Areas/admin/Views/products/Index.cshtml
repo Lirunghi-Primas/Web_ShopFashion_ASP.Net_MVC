@@ -1,0 +1,64 @@
+﻿@using _19607040_ShopFashion.Help
+@model _19607040_ShopFashion.Models.category
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section _Header
+{
+    <link href="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+<h2 class="text-center">Quản lý sản phẩm</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+
+
+        <div class="bs-example" style="text-align:left; padding-bottom:10px;">
+
+            <div class="btn-group">
+                @Html.NoEncodeActionLink("<span class='fas fa-plus'></span> Thêm mới", "Create", "Create", "products", routeValues: new { }, htmlAttributes: new { data_modal = "", @class = "btn btn-success ml-2 mb-2" })
+            </div>
+            <div class="btn-group">
+                @Html.DropDownListFor(model => model.id, (SelectList)ViewBag.Category, " --- Tất cả sản phẩm --- ",
+                                                                new { @class = "form-control", @id = "Category" })
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="getProduct"></div>
+        </div>
+    </div>
+</div>
+@section _Footer
+{
+    <!-- Page level plugins -->
+    <script src="~/Areas/admin/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/Areas/admin/Content/js/demo/datatables-demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            function getProduct() {
+                var CategoryId = $('#Category').val();
+                $.ajax({
+                    url: '@Url.Action("getProduct", "products")',
+                    type: "GET",
+                    data: { id: CategoryId },
+                    success: function (data) {
+                        $("#getProduct").html(data);
+                    },
+                    error: function (data) {
+                        alert("something went wrong.");
+                    }
+                });
+            }
+            getProduct();
+            $("#Category").change(function () {
+                getProduct();
+            })
+        });
+    </script>
+}

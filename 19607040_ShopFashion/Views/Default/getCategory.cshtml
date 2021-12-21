@@ -1,0 +1,17 @@
+﻿@model List<_19607040_ShopFashion.Models.category>
+@foreach (var i in Model)
+{
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <a class="text-success" style="text-decoration: none" href="@ViewBag.meta/@i.meta"><h1 class="h1">@i.name</h1></a>
+            <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        @Html.Action("getProduct", "Default", new { id = i.id, metatitle = @ViewBag.metatitle });
+
+    </div>
+}

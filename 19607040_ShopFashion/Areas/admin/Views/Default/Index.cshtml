@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    @@import "https://fonts.googleapis.com/css?family=Lato:100";
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    section {
+        width: 100%;
+        height: 100vh;
+        color: #fff;
+        background: linear-gradient(-45deg, #2d3436, #7f8c8d, #2d3436);
+        background-size: 400% 400%;
+        position: relative;
+        animation: change 5s ease-in-out infinite;
+    }
+    h1{
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 3px solid #fff;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 3rem 3rem;
+        text-align: center;
+    }
+    @@keyframes change{
+        0%{
+            background-position: 0 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0 50%;
+        }
+    }
+</style>
+<section>
+    <h1>Welcom to Admin</h1>
+</section>
+

@@ -1,0 +1,7 @@
+﻿@model IEnumerable<_19607040_ShopFashion.Models.menu>
+<ul class="list-unstyled text-light footer-link-list">
+    @foreach (var i in Model)
+    {
+        <li><a class="text-decoration-none" href="/@i.meta">@i.name</a></li>
+    }
+</ul>

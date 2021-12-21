@@ -1,0 +1,9 @@
+﻿@model IEnumerable<_19607040_ShopFashion.Models.menu>
+<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+    @foreach (var i in Model)
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="/@i.meta">@i.name</a>
+        </li>
+    }
+</ul>

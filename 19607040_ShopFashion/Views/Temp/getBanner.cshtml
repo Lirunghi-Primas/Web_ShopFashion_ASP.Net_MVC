@@ -1,0 +1,48 @@
+﻿@model IEnumerable<_19607040_ShopFashion.Models.banner>
+
+    @foreach (var myItem in Model.Select((value, i) => new { i, value }))
+    {
+        if (myItem.i == 0)
+        {
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="~/Content/upload/img/product/@myItem.value.img">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Lirunghi</b> Fashion</h1>
+                                <h3 class="h2">Mang đến những mẫu <b class="text-success">thời trang</b> hàng đầu thế giới</h3>
+                                <p>
+                                    Các sản phẩm được tạo ra bởi chính tay các nhà  <a rel="sponsored" style="text-decoration: none" class="text-success" target="_blank">Thiết kế</a> hàng đầu trên thế giới.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ }
+        else
+        {
+            <div class="carousel-item  ">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="~/Content/upload/img/product/@myItem.value.img">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Lirunghi</b> Fashion</h1>
+                                <h3 class="h2">Mang đến những mẫu <b class="text-success">thời trang</b> hàng đầu thế giới</h3>
+                                <p>
+                                    Các sản phẩm được tạo ra bởi chính tay các nhà  <a rel="sponsored" style="text-decoration: none" class="text-success" target="_blank">Thiết kế</a> hàng đầu trên thế giới.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+

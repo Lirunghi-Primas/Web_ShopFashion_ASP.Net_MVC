@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+
+<h2 class="text-success">@Model.name</h2>
+@Html.Action("getProductByIDCategory", "Product", new { id = Model.id, metatitle = @Model.meta });
+
+

@@ -1,0 +1,140 @@
+﻿@using _19607040_ShopFashion.Help
+@model IEnumerable<_19607040_ShopFashion.Models.product>
+@section _Header
+{
+    <link href="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th class="text-center">
+                Tên sản phẩm
+            </th>
+            <th class="text-center">
+                Giá
+            </th>
+            <th class="text-center">
+                Hình ảnh
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.img1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>*@
+            <th class="text-center">
+                Hiển thị
+            </th>
+            <th class="text-center">
+                Vị trí
+            </th>
+            <th class="text-center">
+                Ngày cập nhật
+            </th>
+            @*<th class="text-center">
+                @Html.DisplayNameFor(model => model.categoryid)
+            </th>*@
+            <th class="text-center">
+                Lựa chọn
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{var Number = 1; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.Raw(Number++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td class="text-center">
+                    <img src="~/Content/upload/img/product/@item.img" width="50px" />
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.img1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.img2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.img3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.meta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.color)
+                </td>*@
+                <td class="text-center">
+                    @*@Html.DisplayFor(modelItem => item.hide)*@
+                    @(item.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.order)
+                </td>
+                <td class="text-center">
+                    @(item.datebegin.HasValue ? item.datebegin.Value.ToString("dd/MM/yyyy") : "")
+                    @*@Html.DisplayFor(modelItem => item.datebegin)*@
+                </td>
+                @*<td class="text-center">
+                    @Html.DisplayFor(modelItem => item.categoryid)
+                </td>*@
+                <td class="text-center">
+
+                    <a href="@Url.Action("Edit", "products", new { id = item.id })" class="btn btn-success">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Details", "products", new { id = item.id })" class="btn btn-primary">
+                        <i class="fas fa-search-plus"></i>
+                    </a>
+                    <a href="@Url.Action("Delete", "products", new { id = item.id })" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Page level plugins -->
+<script src="~/Areas/admin/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/Areas/admin/Content/js/demo/datatables-demo.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>

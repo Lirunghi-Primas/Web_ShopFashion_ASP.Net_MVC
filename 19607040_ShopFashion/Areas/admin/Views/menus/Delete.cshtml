@@ -1,0 +1,80 @@
+﻿@using _19607040_ShopFashion.Help
+@model _19607040_ShopFashion.Models.menu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Xóa Menu</h2>
+
+<h3>Bạn có chắc là muốn xóa cái này?</h3>
+
+
+<hr />
+<div class="container ml-2 row">
+    <dl class="dl-horizontal col-md-3">
+        <dt>
+            Tên menu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.link)
+        </dd>
+
+        
+    </dl>
+    <dl class="dl-horizontal col-md-3">
+        <dt>
+            @Html.DisplayNameFor(model => model.meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta)
+        </dd>
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+    </dl>
+        <dl class="dl-horizontal col-md-6">
+
+            
+
+            <dt>
+                Vị trí
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.order)
+            </dd>
+
+            <dt>
+                Ngay cập nhật
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.datebegin)
+            </dd>
+        </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                @Html.NoEncodeActionLink("<span class='fas fa-backspace'></span> Trở lại", "Index", "Index", "menus", routeValues: new { }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark " })
+                <input type="submit" value="Xóa" class="btn btn-success" />
+            </div>
+        }
+</div>

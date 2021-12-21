@@ -1,0 +1,110 @@
+﻿@using _19607040_ShopFashion.Help
+@model IEnumerable<_19607040_ShopFashion.Models.category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section _Header
+{
+    <link href="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+<h2 class="text-center">Quản lý loại danh mục</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="bs-example" style="text-align:left; padding-bottom:10px;">
+
+            <div class="btn-group">
+                @Html.NoEncodeActionLink("<span class='fas fa-plus'></span> Thêm mới", "Create", "Create", "categories", routeValues: new { }, htmlAttributes: new { data_modal = "", @class = "btn btn-success ml-2 mb-2" })
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th class="text-center">
+                            Tên
+                        </th>
+                        @*<th class="text-center">
+            @Html.DisplayNameFor(model => model.link)
+        </th>*@
+                        @*<th class="text-center">
+            @Html.DisplayNameFor(model => model.meta)
+        </th>*@
+                        <th class="text-center">
+                            Hiển thị
+                        </th>
+                        <th class="text-center">
+                            Vị trí
+                        </th>
+                        <th class="text-center">
+                            Ngày cập nhật
+                        </th>
+                        <th class="text-center">
+                            Lựa chọn
+                        </th>
+                    </tr>
+                </thead>
+                @{var Number = 1; }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.Raw(Number++)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        @*<td class="text-center">
+                    @Html.DisplayFor(modelItem => item.link)
+                </td>*@
+                        @*<td class="text-center">
+                    @Html.DisplayFor(modelItem => item.meta)
+                </td>*@
+                        <td class="text-center">
+                            @*@Html.DisplayFor(modelItem => item.hide)*@
+                            @(item.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.order)
+                        </td>
+                        <td class="text-center">
+                            @*@Html.DisplayFor(modelItem => item.datebegin)*@
+                            @(item.datebegin.HasValue ? item.datebegin.Value.ToString("dd/MM/yyyy") : "")
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit", "categories", new { id = item.id })" class="btn btn-success">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Details", "categories", new { id = item.id })" class="btn btn-primary">
+                                <i class="fas fa-search-plus"></i>
+                            </a>
+                            <a href="@Url.Action("Delete", "categories", new { id = item.id })" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+@section _Footer
+{
+    <!-- Page level plugins -->
+    <script src="~/Areas/admin/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/admin/Content/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/Areas/admin/Content/js/demo/datatables-demo.js"></script>
+
+}
